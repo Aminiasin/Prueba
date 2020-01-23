@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Creado por Alberto Valencia el 22 de Enero de 2020   
+# Para cualquier consulta escribe a aminiasin@gmail.com
 
 import csv
 import json
@@ -22,6 +24,6 @@ jsonfile.close()
 df = pd.read_json (r"C:\Users\avalencia\Downloads\resultado.json", lines=True)
 df.drop(df.index[[0,1,-1]], inplace=True)
 
-#crea un fichero csv desde el dataframe creado
+#crea un fichero csv desde el dataframe creado 
 
 df.to_csv(r'C:\Users\avalencia\Downloads\final.csv', sep=',', encoding='utf-8', index=False)
