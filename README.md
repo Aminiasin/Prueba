@@ -1,6 +1,7 @@
-# Hola
-# Hi
-#Esto es una prueba
-Hola que ase
+Hola a todos.
 
-Esto es otra prueba mas
+Lo primero, estoy aprendiendo un poco de Python y tengo esto aqui para no perder el poco codigo que tengo.
+
+Intentare ser lo mas claro en los comentarios en los ficheros.
+
+
