@@ -1,12 +1,21 @@
 # Autenticacion con Google Cloud Storage mediante una cuenta de servicio y un fichero Json
 from google.cloud import storage
+from google.oauth2 import service_account
 
 #Se indica la ubicacion del fichero json 
     
-storage_client = storage.Client.from_service_account_json(r'C:\Users\avale\Downloads\scripts\credentialgcs.json')
+credentials_gcs = service_account.Credentials.from_service_account_file(r'C:\Users\avale\Downloads\scripts\credentialgcs.json')
+storage_client = storage.Client(credentials=credentials_gcs,project='internocgn')  
 
-# Comprobamos que hemos autenticado y podemos acceder a listar los buckets
-    
-buckets = list(storage_client.list_buckets())
+
+#Crea un fichero en bukcket con el nombre blob y le añada la cadena indicad en blobl.upload_from_string
+def crear_fichero():
+    bucket = storage_client.bucket('descargas-cgn')
+    blob = bucket.blob(r'final.csv')
+    blob.upload_from_string('New contents!. This is test.')
+
+
 # Imprime una lista con todos los buckets
-print(buckets)
+def listar_buckets():
+    buckets = list(storage_client.list_buckets())
+    print(buckets)
