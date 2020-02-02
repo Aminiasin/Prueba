@@ -1,0 +1,12 @@
+# Autenticacion con Google Cloud Storage mediante una cuenta de servicio y un fichero Json
+from google.cloud import storage
+
+#Se indica la ubicacion del fichero json 
+    
+storage_client = storage.Client.from_service_account_json(r'C:\Users\avale\Downloads\scripts\credentialgcs.json')
+
+# Comprobamos que hemos autenticado y podemos acceder a listar los buckets
+    
+buckets = list(storage_client.list_buckets())
+# Imprime una lista con todos los buckets
+print(buckets)
