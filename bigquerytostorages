@@ -1,0 +1,23 @@
+# El siguiente codigo se conecta a un proyecto de GCP, consulta un dataset y luego escribira
+# el resultado en varios sitios, un directorio local, Google Drive y Cloud Storage.
+
+
+import pandas as pd
+from google.cloud import bigquery 
+from google.oauth2 import service_account
+
+
+
+# Autenticado al usuario
+credentials = service_account.Credentials.from_service_account_file(r'C:\Users\avale\Downloads\scripts\credentialbq.json')
+project_id = 'internocgn'
+client = bigquery.Client(credentials= credentials,project=project_id)
+
+# Realizamos la consulta con pandas
+data = pd.read_gbq('''SELECT *
+                 FROM syslog_test.miami
+                  LIMIT 5''', project_id='internocgn')
+
+
+#Exportandolel data frame a CSV
+data.to_csv(r'C:\Users\avale\Downloads\scripts\final.csv', sep=',', encoding='utf-8', index=False)
