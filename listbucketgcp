@@ -10,7 +10,7 @@ credentials_gcs = service_account.Credentials.from_service_account_file(r'C:\Use
 storage_client = storage.Client(credentials=credentials_gcs,project='internocgn')  
 
 
-#Crea un fichero en bukcket con el nombre blob y le añada la cadena indicad en upload_from_string
+#Crea un fichero en bucket con el nombre blob y le añada la cadena indicad en upload_from_string
 def crear_fichero():
     bucket = storage_client.bucket('descargas-cgn')
     blob = bucket.blob(r'C:\Users\avale\Downloads\scripts\final.csv')
