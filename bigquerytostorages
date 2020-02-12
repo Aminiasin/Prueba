@@ -14,9 +14,7 @@ project_id = 'internocgn'
 client = bigquery.Client(credentials= credentials,project=project_id)
 
 # Realizamos la consulta con pandas
-data = pd.read_gbq('''SELECT *
-                 FROM syslog_test.miami
-                  LIMIT 5''', project_id='internocgn')
+data = pd.read_gbq('SELECT * FROM syslog_test.miami LIMIT 5', project_id='internocgn')
 
 
 #Exportandolel data frame a CSV
