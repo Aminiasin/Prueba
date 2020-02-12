@@ -21,6 +21,7 @@ def crear_fichero():
 def listar_buckets():
     buckets = list(storage_client.list_buckets())
     print(buckets)
+    
 #sube un fichero que le indicamos con upload_from_filename
 def upload_blob():
     bucket = storage_client.bucket('descargas-cgn')
